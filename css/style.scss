@@ -60,6 +60,16 @@ $mobile: "screen and (max-width:640px)";
   width: 100%;
 }
 
+// BGI 고정 변수
+@mixin bgiBasic {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-indent: -9999px;
+  background-size: cover;
+  background-position: center center;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -394,263 +404,203 @@ section {
 
 #uxdesign {
   @include MgPdBasic;
+  margin-top: 100px;
 
-  > h2 {
-    @include h2Basic;
-  }
+  display: grid;
+  grid-template-columns: 180px 1020px;
 
-  > .ux-top {
-    position: relative;
-    height: 230px;
-
-    > h3 {
-      float: left;
-      font-size: 1.2rem;
-    }
-
-    > p {
-      float: right;
-      font-size: 1rem;
-      line-height: 2;
-      text-align: right;
-    }
-
-    &:before {
-      display: block;
+  > .ux-tit {
+    > h2 {
+      @include h2Basic;
       position: absolute;
-      top: 20px;
+      top: 130px;
       left: 0;
-      color: $pri-color;
-      font-size: 8rem;
-      font-weight: 900;
-      z-index: -1;
-      content: "User";
     }
 
-    &:after {
-      display: block;
-      position: absolute;
-      top: 100px;
-      right: 300px;
-      color: $pri-color;
-      font-size: 8rem;
-      font-weight: 900;
-      z-index: -1;
-      content: "Experience";
-    }
-  } //end of .ux-top
+    > .ux-top {
+      height: 230px;
+
+      > h3 {
+        position: absolute;
+        top: 250px;
+        left: 0;
+        width: 160px;
+        font-size: 1.2rem;
+        line-height: 1.3;
+      }
+
+      > p {
+        position: absolute;
+        top: 330px;
+        left: 0;
+        width: 160px;
+        font-size: 1rem;
+        line-height: 1.7;
+        text-align: left;
+      }
+    } //end of .ux-top
+  } //end of .ux-tit
 
   > .uxdesign-wrapper {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    position: relative;
-    width: 1050px;
-    margin: 0 auto;
 
     > .uxdesign-container {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: space-evenly;
-      align-items: center;
-      position: relative;
-      width: 500px;
-      height: 450px;
       margin: 20px 0;
-      background-color: #fff;
+
+      &:nth-of-type(1) > .frame > a {
+        background-image: url(./../images/ux/001-UX.jpg);
+      }
+      &:nth-of-type(2) > .frame > a {
+        background-image: url(./../images/ux/002-Design_UX.jpg);
+      }
+      &:nth-of-type(3) > .frame > a {
+        background-image: url(./../images/ux/003-Persona.jpg);
+      }
+      &:nth-of-type(4) > .frame > a {
+        background-image: url(./../images/ux/004-Storybord.jpg);
+      }
+      &:nth-of-type(5) > .frame > a {
+        background-image: url(./../images/ux/005-Aesthetic.png);
+      }
+      &:nth-of-type(6) > .frame > a {
+        background-image: url(./../images/ux/006-UXUI.png);
+      }
+      &:nth-of-type(7) > .frame > a {
+        background-image: url(./../images/ux/007-media.png);
+      }
+
       > .frame {
         display: block;
-        overflow: hidden;
-        width: 480px;
-        height: 290px;
-        > img {
-          @include imgBasic;
-          transition: all 0.3s;
+        width: 500px;
+        height: 280px;
 
-          &:hover {
-            transform: scale(1.05);
-          }
+        &:hover > a {
+          box-shadow: 0 0 0 500px inset rgba(255, 255, 255, 0.5);
+          transition: all 0.3s;
         }
+
+        > a {
+          @include bgiBasic();
+        } //end of a
       } //end of .frame
 
       > h3 {
-        font-size: 1.2rem;
-      }
-
-      > p {
-        font-size: 0.8rem;
-      }
-
-      > .pdfbox {
-        display: block;
-        width: 90px;
-        font-size: 1rem;
-        font-weight: 600;
-        line-height: 30px;
-        text-align: center;
-        background-color: $pri-color;
-        border-radius: 10px;
+        &:hover > a {
+          color: $point-color;
+        }
 
         > a {
           display: block;
-          height: 30px;
-        }
-      } //end of .pdfbox
+          font-size: 1rem;
+          font-weight: 600;
+          text-align: center;
+          line-height: 2.5;
+        } //end of a
+      } //end of h3
+
+      > p {
+        width: 500px;
+        font-size: 0.8rem;
+        text-align: center;
+      } //end of p
     } //end of .uxdesign-container
   } //end of .uxdesign-wrapper
 } //end of #uxdesign
 
 #portfolio {
-  @include MgPdBasic();
+  position: relative;
+  min-width: 1200px;
+  margin: 30px auto 50px;
+  padding: 50px 0;
+  background-color: #fff;
 
   > h2 {
     @include h2Basic();
     position: relative;
     margin-bottom: 80px;
-
-    &:before {
-      display: block;
-      position: absolute;
-      top: 10px;
-      left: 380px;
-      color: $pri-color;
-      font-size: 8rem;
-      font-weight: 900;
-      z-index: -1;
-      content: "MY";
-    }
-
-    &:after {
-      display: block;
-      position: absolute;
-      top: 50px;
-      right: 180px;
-      color: $pri-color;
-      font-size: 8rem;
-      font-weight: 900;
-      z-index: -1;
-      content: "WORKS";
-    }
   }
 
-  > .portfolio-wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    position: relative;
-    > .portfolio-container {
+  > .portfolio {
+    width: 1200px;
+    margin: 0 auto;
+    > .portfolio-wrapper {
       display: flex;
-      flex-flow: column wrap;
-      justify-content: space-evenly;
-      align-items: center;
+      flex-flow: row wrap;
+      justify-content: space-between;
       position: relative;
-      width: 580px;
-      height: 500px;
-      margin: 20px 0;
-      background-color: #fff;
-      > .frame {
-        overflow: hidden;
-        width: 100%;
+      > .portfolio-container {
+        margin: 20px 0;
 
-        > img {
-          @include imgBasic();
-          transition: all 0.3s;
-
-          &:hover {
-            transform: scale(1.05);
-          }
+        &:nth-of-type(1) > .frame > a {
+          background-image: url(./../images/website/thm_cj.png);
         }
-      }
-
-      > h3 {
-        font-size: 1.2rem;
-        font-weight: 600;
-      }
-
-      > .expln {
-        width: 550px;
-        font-size: 0.8rem;
-        text-align: center;
-      }
-
-      > .tools {
-        font-size: 0.8rem;
-        > span {
-          font-weight: 600;
+        &:nth-of-type(2) > .frame > a {
+          background-image: url(./../images/website/thm_subway.png);
         }
-      }
-      > .cntrb {
-        font-size: 0.8rem;
-        > span {
-          font-weight: 600;
+        &:nth-of-type(3) > .frame > a {
+          background-image: url(./../images/website/thm_myrealtrip.png);
         }
-      }
+        &:nth-of-type(4) > .frame > a {
+          background-image: url(./../images/website/thm_lookpin.png);
+        }
+        &:nth-of-type(5) > .frame > a {
+          background-image: url(./../images/website/thm_lotto.png);
+        }
+        &:nth-of-type(6) > .frame > a {
+          background-image: url(./../images/website/thm_kakaoslide.png);
+        }
+        &:nth-of-type(7) > .frame > a {
+          background-image: url(./../images/website/thm_anitmr.png);
+        }
 
-      > .show {
-        display: flex;
-        justify-content: space-evenly;
-        width: 200px;
-        > .process {
+        > .frame {
           display: block;
-          width: 90px;
-          font-size: 1rem;
-          font-weight: 600;
-          line-height: 30px;
+          width: 350px;
+          height: 350px;
+
+          &:hover > a {
+            box-shadow: 0 0 0 500px inset rgba(255, 255, 255, 0.5);
+            transition: all 0.3s;
+          }
+
+          > a {
+            @include bgiBasic();
+          }
+        } //end of .frame
+
+        > .subtit {
+          font-size: 0.8rem;
           text-align: center;
-          background-color: $pri-color;
-          border-radius: 10px;
+          line-height: 1.7;
+        } //end of .subtit
+
+        > h3 {
+          font-size: 1.2rem;
+          text-align: center;
+          line-height: 1.3;
+
+          &:hover > a {
+            color: $point-color;
+          }
+        } //end of h3
+
+        > p {
+          &:hover > a {
+            color: $pri-color;
+          }
+
           > a {
             display: block;
-            height: 30px;
+            font-size: 0.8rem;
+            text-align: center;
+            line-height: 1.7;
           }
         }
-        > .webpage {
-          display: block;
-          width: 90px;
-          font-size: 1rem;
-          font-weight: 600;
-          line-height: 30px;
-          text-align: center;
-          background-color: $pri-color;
-          border-radius: 10px;
-        }
-      }
-
-      > .shadow {
-        display: none;
-        position: fixed;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-
-        > .modal {
-          display: block;
-          overflow-y: scroll;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          width: 1000px;
-          height: 800px;
-          margin: -400px -425px 0 -500px;
-
-          > img {
-            @include imgBasic();
-          }
-        } //end of .modal
-
-        > .clse {
-          display: block;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          margin: 360px 0 0 430px;
-        }
-      } //end of .shadow
-    } //end of portfolio-container
-  } //end of .portfolio-wrapper
+      } //end of portfolio-container
+    } //end of .portfolio-wrapper
+  } //end of .portfolio
 } //end of #portfolio
 
 footer {
