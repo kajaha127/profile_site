@@ -7,685 +7,737 @@ $sec-color: #f5f5f5;
 
 // 강조 도서관체
 @font-face {
-	font-family: 'Dosuguan';
-	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/도서관체.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+  font-family: "Dosuguan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/도서관체.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-// 홈 강조 KCC임권택체
+// 강조 KCC임권택체
 @font-face {
-	font-family: 'KCCImkwontaek';
-	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/KCCImkwontaek.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+  font-family: "KCCImkwontaek";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/KCCImkwontaek.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// 강조 만세체
+@font-face {
+  font-family: "Manse";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Manse.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 // 모바일
-$mobile: 'screen and (max-width:640px)';
+$mobile: "screen and (max-width:640px)";
 
 // 섹션 마진 패딩 변수
 @mixin MgPdBasic {
-	position: relative;
-	width: 1200px;
-	margin: 30px auto 80px;
-	padding: 50px 0;
+  position: relative;
+  width: 1200px;
+  margin: 30px auto 50px;
+  padding: 50px 0;
 }
 
 // h2 제목 변수
 @mixin h2Basic {
-	margin-bottom: 20px;
-	font-size: 3em;
-	font-weight: 700;
-	font-family: 'Dosuguan';
-	line-height: 80px;
-	letter-spacing: 2px;
-	text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  font-family: "Dosuguan";
+  line-height: 80px;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
 // 이미지 고정 변수
 @mixin imgBasic {
-	display: block;
-	width: 100%;
+  display: block;
+  width: 100%;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-	background-color: $sec-color;
+  background-color: $sec-color;
 }
 
 #wrap {
-	position: relative;
-	min-width: 1200px;
-	margin: 0 auto;
+  position: relative;
+  min-width: 1200px;
+  margin: 0 auto;
 } //end of #wrap
 
 header {
-	min-width: 100%;
-	background-color: #fff;
+  min-width: 100%;
+  background-color: #fff;
 
-	&.fixed {
-		position: fixed;
-		left: 0;
-		top: 0;
-		z-index: 1000;
-	}
+  &.fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+  }
 
-	> nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		width: 1200px;
-		height: 50px;
-		margin: 0 auto;
+  > nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    height: 50px;
+    margin: 0 auto;
 
-		> h1 {
-			width: 30px;
-			> .logo {
-				display: block;
-				height: 30px;
-				text-indent: -9999px;
-				> img {
-					@include imgBasic();
-				}
-			} //end of .logo
-		} //end of h1
-		> .gnb {
-			display: flex;
-			justify-content: space-between;
-			width: 800px;
-			> li {
-				&.on {
-					text-decoration: line-through;
-					text-decoration-color: $pri-color;
-				}
+    > h1 {
+      width: 30px;
+      > .logo {
+        display: block;
+        height: 30px;
+        text-indent: -9999px;
+        > img {
+          @include imgBasic;
+        }
+      } //end of .logo
+    } //end of h1
+    > .gnb {
+      display: flex;
+      justify-content: space-between;
+      width: 800px;
+      > li {
+        &.on,
+        &:hover {
+          text-decoration: line-through;
+          text-decoration-color: $pri-color;
+        }
 
-				> a {
-					display: block;
-					color: $pri-color;
-					font-size: 1.7em;
-					font-weight: 700;
-					font-family: 'Dosuguan';
-				}
-			} //end of li
-		} //end of .gnb
-	} //end of nav
+        > a {
+          display: block;
+          color: $pri-color;
+          font-size: 1.4rem;
+          font-weight: 500;
+          font-family: "Dosuguan";
+        }
+      } //end of li
+    } //end of .gnb
+  } //end of nav
 } //end of header
 
 section {
-	> .home {
-		position: relative;
-		width: 1200px;
-		height: 750px;
-		margin: 0 auto;
-		> h2 {
-			position: absolute;
-			left: 50px;
-			color: #000;
-			font-size: 10em;
-			font-weight: 400;
-			line-height: 230px;
-			letter-spacing: 40px;
-			font-family: 'KCCImkwontaek';
-			z-index: 20;
-		}
-		> .frame {
-			display: block;
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			width: 600px;
-			> img {
-				@include imgBasic();
-			}
-		} //end of .frame
-	}
+  > .home {
+    height: 70vh;
+    margin-top: 50px;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > .aboutme-card {
+      position: relative;
+      height: 500px;
+      > .yellowbox {
+        position: absolute;
+        left: 50%;
+        width: 900px;
+        height: 400px;
+        margin-left: -450px;
+        background: radial-gradient(
+            circle at 80% 0,
+            $point-color,
+            rgba(255, 0, 0, 0) 30%
+          ),
+          radial-gradient(
+            circle at 10% 100%,
+            $pri-color,
+            rgba(0, 0, 255, 0) 70%
+          ),
+          radial-gradient(
+              circle at 10% 100%,
+              $sec-color,
+              rgba(0, 255, 0, 0) 60%
+            )
+            beige;
+        border-radius: 30px;
+        box-shadow: 0 5px 8px 2px rgba(64, 70, 67, 0.2),
+          0 3px 3px 3px rgba(29, 31, 30, 0.3);
+        z-index: -1;
+        > .frame {
+          display: block;
+          position: absolute;
+          left: 12%;
+          top: 50%;
+          margin-top: -100px;
+          width: 200px;
+          height: 200px;
+          > img {
+            @include imgBasic();
+          }
+        }
+      } //end of .yellowbox
+      > ul {
+        display: grid;
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        grid-template-rows: 1fr;
+        row-gap: 30px;
+        > li {
+          display: grid;
+          grid-template-columns: 100px 1fr;
+          column-gap: 50px;
+
+          > h3 {
+            font-size: 1.4rem;
+          }
+          > p {
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+        } //end of li
+      } //end of ul
+    } //end of .aboutme-card
+  }
 } //end of section
 
 #aboutme {
-	@include MgPdBasic();
-	> h2 {
-		@include h2Basic();
-	}
-	> .aboutme-card {
-		position: relative;
-		height: 500px;
-		> .yellowbox {
-			position: absolute;
-			left: 50%;
-			width: 900px;
-			height: 400px;
-			margin-left: -450px;
-			background: radial-gradient(circle at 80% 0, $point-color, rgba(255, 0, 0, 0) 30%),
-				radial-gradient(circle at 10% 100%, $pri-color, rgba(0, 0, 255, 0) 70%),
-				radial-gradient(circle at 10% 100%, $sec-color, rgba(0, 255, 0, 0) 60%) beige;
-			border-radius: 30px;
-			box-shadow: 0 5px 8px 2px rgba(64, 70, 67, 0.2), 0 3px 3px 3px rgba(29, 31, 30, 0.3);
-			z-index: -1;
-			> .frame {
-				display: block;
-				position: absolute;
-				left: 12%;
-				top: 50%;
-				margin-top: -100px;
-				width: 200px;
-				height: 200px;
-				> img {
-					@include imgBasic();
-				}
-			}
-		} //end of .yellowbox
-		> ul {
-			display: grid;
-			position: absolute;
-			left: 50%;
-			top: 20%;
-			grid-template-rows: 1fr;
-			row-gap: 30px;
-			> li {
-				display: grid;
-				grid-template-columns: 100px 1fr;
-				column-gap: 50px;
+  @include MgPdBasic();
+  > h2 {
+    @include h2Basic();
+  }
 
-				> h3 {
-					font-size: 1.5em;
-				}
-				> p {
-					font-size: 1.5em;
-					font-weight: 600;
-				}
-			} //end of li
-		} //end of ul
-	} //end of .aboutme-card
-	> .aboutme-section {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: relative;
-		width: 100%;
-		height: 600px;
+  > .title {
+    position: relative;
+    width: 1200px;
+    height: 80vh;
+    margin: 0 auto 100px;
+    > h3 {
+      position: absolute;
+      left: 50px;
+      color: #000;
+      font-size: 8.5rem;
+      font-weight: 400;
+      line-height: 230px;
+      letter-spacing: 20px;
+      font-family: "Manse";
+      z-index: 20;
+    }
+    > .frame {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 20px;
+      width: 600px;
+      > img {
+        @include imgBasic();
+      }
+    } //end of .frame
+  }
+  > .aboutme-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 600px;
 
-		&:before {
-			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 50px;
-			height: 50px;
-			border-top: 5px solid $point-color;
-			border-left: 5px solid $point-color;
-			content: '';
-		}
+    &:before {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      border-top: 5px solid $point-color;
+      border-left: 5px solid $point-color;
+      content: "";
+    }
 
-		&:after {
-			display: block;
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			width: 50px;
-			height: 50px;
-			border-right: 5px solid $point-color;
-			border-bottom: 5px solid $point-color;
-			content: '';
-		}
+    &:after {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 50px;
+      height: 50px;
+      border-right: 5px solid $point-color;
+      border-bottom: 5px solid $point-color;
+      content: "";
+    }
 
-		> ol {
-			> li {
-				margin: 50px 0;
-				text-align: center;
+    > ol {
+      > li {
+        margin: 50px 0;
+        text-align: center;
 
-				> h3 {
-					padding: 15px 0;
-					color: darken($point-color, 20%);
-					font-size: 1.4em;
-				}
-				> p {
-					font-size: 1.2em;
-					line-height: 2;
-				}
-			} //end of li
-		} //end of ol
-	} //end of .aboutme-section
+        > h3 {
+          padding: 15px 0;
+          color: darken($point-color, 20%);
+          font-size: 1.2rem;
+        }
+        > p {
+          font-size: 0.8rem;
+          line-height: 2;
+        }
+      } //end of li
+    } //end of ol
+  } //end of .aboutme-section
 } //end of #aboutme
 
 #skill {
-	@include MgPdBasic();
-	min-width: 100%;
-	background-image: url(./../images/skillBGI.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
+  @include MgPdBasic();
+  min-width: 100%;
+  background-image: url(./../images/skillBGI.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 
-	> h2 {
-		@include h2Basic();
-		width: 1200px;
-		margin: 0 auto;
-	}
+  > h2 {
+    @include h2Basic();
+    width: 1200px;
+    margin: 0 auto;
+  }
 
-	> .skill-tools {
-		width: 900px;
-		margin: 0 auto;
-		> .item {
-			position: relative;
-			margin: 15px 0;
-			&:nth-of-type(5) > .item-frame {
-				margin-left: -70px;
-				width: 150px;
-			}
-			> .item-frame {
-				display: inline-block;
-				width: 60px;
-				> img {
-					@include imgBasic();
-				}
-			} //end of .item-frame
-			> .progress {
-				position: absolute;
-				left: 80px;
-				top: 40%;
-				width: 90%;
-				height: 10px;
-				background-color: #3c3d4a;
-				border-radius: 3px;
+  > .skill-tools {
+    width: 900px;
+    margin: 0 auto;
+    > .item {
+      position: relative;
+      margin: 15px 0;
+      &:nth-of-type(5) > .item-frame {
+        margin-left: -70px;
+        width: 150px;
+      }
+      > .item-frame {
+        display: inline-block;
+        width: 60px;
+        > img {
+          @include imgBasic();
+        }
+      } //end of .item-frame
+      > .progress {
+        position: absolute;
+        left: 80px;
+        top: 40%;
+        width: 90%;
+        height: 10px;
+        background-color: #3c3d4a;
+        border-radius: 3px;
 
-				> .bar {
-					width: 0;
-					height: 100%;
-					background-color: $pri-color;
-					transition: all 1s;
-					> span {
-						position: absolute;
-						top: -20px;
-						right: 15px;
-						font-size: 1.2em;
-					}
-				} //end of .bar
-			} //end of .progress
-		} //end of .item
-	} //end of .skill-tools
+        > .bar {
+          width: 0;
+          height: 100%;
+          background-color: $pri-color;
+          transition: all 1s;
+          > span {
+            position: absolute;
+            top: -20px;
+            right: 15px;
+            font-size: 1rem;
+          }
+        } //end of .bar
+      } //end of .progress
+    } //end of .item
+  } //end of .skill-tools
 
-	> h2 {
-		@include h2Basic();
-		width: 1200px;
-		margin: 0 auto;
-	}
+  > h2 {
+    @include h2Basic();
+    width: 1200px;
+    margin: 0 auto;
+  }
 
-	> .skill-ability {
-		display: flex;
-		justify-content: space-between;
-		width: 900px;
-		margin: 15px auto;
-		> .item {
-			width: 140px;
-			height: 200px;
+  > .skill-ability {
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    margin: 15px auto;
+    > .item {
+      width: 140px;
+      height: 200px;
 
-			> .chart {
-				position: relative;
-				width: 120px;
-				height: 120px;
-				text-align: center;
+      > .chart {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        text-align: center;
 
-				canvas {
-					position: absolute;
-					left: 0;
-					top: 0;
-				}
+        canvas {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
 
-				> .percent {
-					color: #333;
-					font-size: 1.3em;
-					font-weight: 500;
-					line-height: 120px;
+        > .percent {
+          color: #333;
+          font-size: 1rem;
+          font-weight: 500;
+          line-height: 120px;
 
-					&:after {
-						content: '%';
-					}
-				} //end of .parcent
+          &:after {
+            content: "%";
+          }
+        } //end of .parcent
 
-				> .tit {
-					height: 60px;
-					color: #333;
-					font-weight: 500;
-					font-size: 1.3em;
-					line-height: 60px;
-				} //end of .tit
-			} //end of .chart
-		} //end of .item
-	} //end of .skill-ability
+        > .tit {
+          height: 60px;
+          color: #333;
+          font-weight: 500;
+          font-size: 1rem;
+          line-height: 60px;
+        } //end of .tit
+      } //end of .chart
+    } //end of .item
+  } //end of .skill-ability
 } //end of #skill
 
 #uxdesign {
-	@include MgPdBasic();
+  @include MgPdBasic;
 
-	> h2 {
-		@include h2Basic();
-	}
+  > h2 {
+    @include h2Basic;
+  }
 
-	> .ux-top {
-		position: relative;
-		height: 230px;
+  > .ux-top {
+    position: relative;
+    height: 230px;
 
-		> h3 {
-			float: left;
-			font-size: 1.5em;
-		}
+    > h3 {
+      float: left;
+      font-size: 1.2rem;
+    }
 
-		> p {
-			float: right;
-			font-size: 1.2em;
-			line-height: 2;
-			text-align: right;
-		}
+    > p {
+      float: right;
+      font-size: 1rem;
+      line-height: 2;
+      text-align: right;
+    }
 
-		&:before {
-			display: block;
-			position: absolute;
-			top: 20px;
-			left: 0;
-			color: $pri-color;
-			font-size: 10em;
-			font-weight: 900;
-			z-index: -1;
-			content: 'User';
-		}
+    &:before {
+      display: block;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      color: $pri-color;
+      font-size: 8rem;
+      font-weight: 900;
+      z-index: -1;
+      content: "User";
+    }
 
-		&:after {
-			display: block;
-			position: absolute;
-			top: 100px;
-			right: 300px;
-			color: $pri-color;
-			font-size: 10em;
-			font-weight: 900;
-			z-index: -1;
-			content: 'Experience';
-		}
-	} //end of .ux-top
+    &:after {
+      display: block;
+      position: absolute;
+      top: 100px;
+      right: 300px;
+      color: $pri-color;
+      font-size: 8rem;
+      font-weight: 900;
+      z-index: -1;
+      content: "Experience";
+    }
+  } //end of .ux-top
 
-	> .uxdesign-containers {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-between;
-		position: relative;
-		width: 1050px;
-		margin: 0 auto;
+  > .uxdesign-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    position: relative;
+    width: 1050px;
+    margin: 0 auto;
 
-		> .uxdesign-container {
-			display: flex;
-			flex-flow: column wrap;
-			justify-content: space-evenly;
-			align-items: center;
-			position: relative;
-			width: 500px;
-			height: 450px;
-			margin: 20px 0;
-			background-color: #fff;
-			> .frame {
-				display: block;
-				overflow: hidden;
-				width: 480px;
-				height: 290px;
-				> img {
-					@include imgBasic();
-					transition: all 0.3s;
+    > .uxdesign-container {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      position: relative;
+      width: 500px;
+      height: 450px;
+      margin: 20px 0;
+      background-color: #fff;
+      > .frame {
+        display: block;
+        overflow: hidden;
+        width: 480px;
+        height: 290px;
+        > img {
+          @include imgBasic;
+          transition: all 0.3s;
 
-					&:hover {
-						transform: scale(1.05);
-					}
-				}
-			} //end of .frame
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      } //end of .frame
 
-			> h3 {
-				font-size: 1.5em;
-			}
+      > h3 {
+        font-size: 1.2rem;
+      }
 
-			> p {
-				font-size: 1.2em;
-			}
+      > p {
+        font-size: 0.8rem;
+      }
 
-			> .pdfbox {
-				display: block;
-				width: 90px;
-				font-size: 1.3em;
-				font-weight: 600;
-				line-height: 30px;
-				text-align: center;
-				background-color: $pri-color;
-				border-radius: 10px;
+      > .pdfbox {
+        display: block;
+        width: 90px;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 30px;
+        text-align: center;
+        background-color: $pri-color;
+        border-radius: 10px;
 
-				> a {
-					display: block;
-					height: 30px;
-				}
-			} //end of .pdfbox
-		} //end of .uxdesign-container
-	} //end of .uxdesign-containers
+        > a {
+          display: block;
+          height: 30px;
+        }
+      } //end of .pdfbox
+    } //end of .uxdesign-container
+  } //end of .uxdesign-wrapper
 } //end of #uxdesign
 
 #portfolio {
-	@include MgPdBasic();
+  @include MgPdBasic();
 
-	> h2 {
-		@include h2Basic();
-		position: relative;
-		margin-bottom: 80px;
+  > h2 {
+    @include h2Basic();
+    position: relative;
+    margin-bottom: 80px;
 
-		&:before {
-			display: block;
-			position: absolute;
-			top: 10px;
-			left: 380px;
-			color: $pri-color;
-			font-size: 3em;
-			font-weight: 900;
-			z-index: -1;
-			content: 'MY';
-		}
+    &:before {
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 380px;
+      color: $pri-color;
+      font-size: 8rem;
+      font-weight: 900;
+      z-index: -1;
+      content: "MY";
+    }
 
-		&:after {
-			display: block;
-			position: absolute;
-			top: 50px;
-			right: 180px;
-			color: $pri-color;
-			font-size: 3em;
-			font-weight: 900;
-			z-index: -1;
-			content: 'WORKS';
-		}
-	}
+    &:after {
+      display: block;
+      position: absolute;
+      top: 50px;
+      right: 180px;
+      color: $pri-color;
+      font-size: 8rem;
+      font-weight: 900;
+      z-index: -1;
+      content: "WORKS";
+    }
+  }
 
-	> .portfolio-containers {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-between;
-		position: relative;
-		> .portfolio-container {
-			display: flex;
-			flex-flow: column wrap;
-			justify-content: space-evenly;
-			align-items: center;
-			position: relative;
-			width: 580px;
-			height: 500px;
-			margin: 20px 0;
-			background-color: #fff;
-			> .frame {
-				overflow: hidden;
-				width: 100%;
+  > .portfolio-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    position: relative;
+    > .portfolio-container {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      position: relative;
+      width: 580px;
+      height: 500px;
+      margin: 20px 0;
+      background-color: #fff;
+      > .frame {
+        overflow: hidden;
+        width: 100%;
 
-				> img {
-					@include imgBasic();
-					transition: all 0.3s;
+        > img {
+          @include imgBasic();
+          transition: all 0.3s;
 
-					&:hover {
-						transform: scale(1.05);
-					}
-				}
-			}
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
 
-			> h3 {
-				font-size: 1.5em;
-				font-weight: 600;
-			}
+      > h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
 
-			> .expln {
-				width: 550px;
-				font-size: 1.3em;
-				text-align: center;
-			}
+      > .expln {
+        width: 550px;
+        font-size: 0.8rem;
+        text-align: center;
+      }
 
-			> .tools {
-				font-size: 1.1em;
-				> span {
-					font-weight: 600;
-				}
-			}
-			> .cntrb {
-				font-size: 1.1em;
-				> span {
-					font-weight: 600;
-				}
-			}
+      > .tools {
+        font-size: 0.8rem;
+        > span {
+          font-weight: 600;
+        }
+      }
+      > .cntrb {
+        font-size: 0.8rem;
+        > span {
+          font-weight: 600;
+        }
+      }
 
-			> .show {
-				display: flex;
-				justify-content: space-evenly;
-				width: 200px;
-				> .process {
-					display: block;
-					width: 90px;
-					font-size: 1.3em;
-					font-weight: 600;
-					line-height: 30px;
-					text-align: center;
-					background-color: $pri-color;
-					border-radius: 10px;
-					> a {
-						display: block;
-						height: 30px;
-					}
-				}
-				> .webpage {
-					display: block;
-					width: 90px;
-					font-size: 1.3em;
-					font-weight: 600;
-					line-height: 30px;
-					text-align: center;
-					background-color: $pri-color;
-					border-radius: 10px;
-				}
-			}
+      > .show {
+        display: flex;
+        justify-content: space-evenly;
+        width: 200px;
+        > .process {
+          display: block;
+          width: 90px;
+          font-size: 1rem;
+          font-weight: 600;
+          line-height: 30px;
+          text-align: center;
+          background-color: $pri-color;
+          border-radius: 10px;
+          > a {
+            display: block;
+            height: 30px;
+          }
+        }
+        > .webpage {
+          display: block;
+          width: 90px;
+          font-size: 1rem;
+          font-weight: 600;
+          line-height: 30px;
+          text-align: center;
+          background-color: $pri-color;
+          border-radius: 10px;
+        }
+      }
 
-			> .shadow {
-				display: none;
-				position: fixed;
-				left: 0;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				background-color: rgba(0, 0, 0, 0.5);
-				z-index: 1000;
+      > .shadow {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
 
-				> .modal {
-					display: block;
-					overflow-y: scroll;
-					position: absolute;
-					left: 50%;
-					top: 50%;
-					width: 1000px;
-					height: 800px;
-					margin: -400px -425px 0 -500px;
+        > .modal {
+          display: block;
+          overflow-y: scroll;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 1000px;
+          height: 800px;
+          margin: -400px -425px 0 -500px;
 
-					> img {
-						@include imgBasic();
-					}
-				} //end of .modal
+          > img {
+            @include imgBasic();
+          }
+        } //end of .modal
 
-				> .clse {
-					display: block;
-					position: absolute;
-					left: 50%;
-					top: 50%;
-					margin: 360px 0 0 430px;
-				}
-			} //end of .shadow
-		} //end of portfolio-container
-	} //end of .portfolio-containers
+        > .clse {
+          display: block;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin: 360px 0 0 430px;
+        }
+      } //end of .shadow
+    } //end of portfolio-container
+  } //end of .portfolio-wrapper
 } //end of #portfolio
 
 footer {
-	position: relative;
-	> #contact {
-		@include MgPdBasic();
-		height: 600px;
-		> h2 {
-			@include h2Basic();
-		}
-		> .contact-card {
-			> .yellowbox {
-				position: absolute;
-				left: 50%;
-				width: 900px;
-				height: 400px;
-				margin-left: -450px;
-				background: radial-gradient(circle at 80% 0, $sec-color, rgba(255, 0, 0, 0) 30%),
-					radial-gradient(circle at 10% 100%, $point-color, rgba(0, 0, 255, 0) 70%),
-					radial-gradient(circle at 50% 100%, $pri-color, rgba(0, 255, 0, 0) 60%) beige;
-				border-radius: 30px;
-				box-shadow: 0 5px 8px 2px rgba(64, 70, 67, 0.2), 0 3px 3px 3px rgba(29, 31, 30, 0.3);
+  position: relative;
+  > #contact {
+    @include MgPdBasic();
+    height: 600px;
+    > h2 {
+      @include h2Basic();
+    }
+    > .contact-card {
+      > .yellowbox {
+        position: absolute;
+        left: 50%;
+        width: 900px;
+        height: 400px;
+        margin-left: -450px;
+        background: radial-gradient(
+            circle at 80% 0,
+            $sec-color,
+            rgba(255, 0, 0, 0) 30%
+          ),
+          radial-gradient(
+            circle at 10% 100%,
+            $point-color,
+            rgba(0, 0, 255, 0) 70%
+          ),
+          radial-gradient(
+              circle at 50% 100%,
+              $pri-color,
+              rgba(0, 255, 0, 0) 60%
+            )
+            beige;
+        border-radius: 30px;
+        box-shadow: 0 5px 8px 2px rgba(64, 70, 67, 0.2),
+          0 3px 3px 3px rgba(29, 31, 30, 0.3);
 
-				> .frame {
-					display: block;
-					position: absolute;
-					top: 50px;
-					left: 50px;
-					width: 100px;
-					height: 100px;
-					> img {
-						@include imgBasic();
-					}
-				}
+        > .frame {
+          display: block;
+          position: absolute;
+          top: 50px;
+          left: 50px;
+          width: 100px;
+          height: 100px;
+          > img {
+            @include imgBasic();
+          }
+        }
 
-				> .coment {
-					position: absolute;
-					right: 50px;
-					top: 50px;
-					font-size: 2.7em;
-					font-weight: 700;
-					font-family: 'KCCImkwontaek';
-					line-height: 2;
-					text-align: right;
-				}
+        > .coment {
+          position: absolute;
+          right: 50px;
+          top: 50px;
+          font-size: 2rem;
+          font-weight: 700;
+          font-family: "KCCImkwontaek";
+          line-height: 2;
+          text-align: right;
+        }
 
-				> address {
-					position: absolute;
-					left: 50px;
-					bottom: 50px;
-					font-size: 1.5em;
-					line-height: 1.1;
-				}
+        > address {
+          position: absolute;
+          left: 50px;
+          bottom: 50px;
+          font-size: 1rem;
+          line-height: 1.1;
+        }
 
-				> .thanks {
-					position: absolute;
-					right: 50px;
-					bottom: 80px;
-					font-size: 2.5em;
-					font-family: 'KCCImkwontaek';
-				}
-			}
-		} //end of .contact-card
-	} //end of #contact
+        > .thanks {
+          position: absolute;
+          right: 50px;
+          bottom: 80px;
+          font-size: 2rem;
+          font-family: "KCCImkwontaek";
+        }
+      }
+    } //end of .contact-card
+  } //end of #contact
 
-	> .copy {
-		min-width: 1200px;
-		height: 50px;
-		background-color: darken($sec-color, 10%);
-		> address {
-			font-size: 1.2em;
-			text-align: center;
-			line-height: 50px;
-		}
-	}
+  > .copy {
+    min-width: 1200px;
+    height: 50px;
+    background-color: darken($sec-color, 10%);
+    > address {
+      font-size: 0.8rem;
+      text-align: center;
+      line-height: 50px;
+    }
+  }
 }
